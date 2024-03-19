@@ -1,5 +1,4 @@
 import React from "react";
-import toast, { Toaster } from "react-hot-toast";
 
 function PokemonCard({ pokemon, handleClick, single = false }) {
   const handleVote = async () => {
@@ -9,6 +8,7 @@ function PokemonCard({ pokemon, handleClick, single = false }) {
       image: pokemon.sprites.other["official-artwork"].front_default,
       date: new Date(),
       user: null,
+      types: pokemon.types,
     };
 
     try {
@@ -22,7 +22,6 @@ function PokemonCard({ pokemon, handleClick, single = false }) {
 
       if (!response.ok) throw new Error("Vote error.");
       console.log("Vote success.");
-      toast.success("Vote success");
       handleClick();
     } catch (error) {
       console.error("Error:", error);

@@ -9,7 +9,8 @@ const pokemonSchema = new mongoose.Schema({
     rankings: [{
         date: { type: Date, default: Date.now },
         rank: Number
-    }]
+    }],
+    types: { type: [Object] },
 })
 
 module.exports = mongoose.model('Pokemon', pokemonSchema);

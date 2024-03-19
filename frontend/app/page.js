@@ -1,4 +1,5 @@
 import RankedList from "@/components/RankedList";
+import TypesChart from "@/components/TypesChart";
 import Link from "next/link";
 
 export default function Home() {
@@ -12,7 +13,10 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <RankedList limit={10} />
+      <div className="global-stats">
+        <RankedList limit={10} />
+        <TypesChart />
+      </div>
     </div>
   );
 }

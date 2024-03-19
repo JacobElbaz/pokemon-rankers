@@ -4,6 +4,11 @@ body {
   background-color: #3B4CCA;
 }
 
+button,
+input {
+  font-family: inherit;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -86,7 +91,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
   padding-left: 1rem;
 }
 
@@ -177,23 +182,26 @@ tbody tr:hover {
 .battle-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   margin-top: 48px;
-  min-height: calc(100svh - 48px);
+  min-height: calc(100svh - 48px - 21px - 2rem);
 }
 
 .battle-container h1 {
   font-size: 24px;
   font-weight: bold;
-  color: #fffd6a; /* Adjust color as needed */
-  margin: 2rem; /* Add spacing between title and text */
+  color: #fffd6a;
+  /* Adjust color as needed */
+  margin: 2rem;
+  /* Add spacing between title and text */
 }
 
 .battle-container .text {
   font-size: 16px;
-  color: #666; /* Adjust color as needed */
-  margin: 20px; /* Add spacing between paragraphs */
+  color: #666;
+  /* Adjust color as needed */
+  margin: 20px;
+  /* Add spacing between paragraphs */
   background-color: #d1d1d1;
   padding: 20px;
   border-radius: 10px;
@@ -259,33 +267,201 @@ tbody tr:hover {
   margin-top: 50px;
 }
 
+.custom-tooltip {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-tooltip p {
+  margin: 0;
+}
+
+.custom-tooltip .label {
+  font-weight: bold;
+}
+
+.custom-tooltip .rank {
+  color: #8884d8;
+  /* Adjust color as needed */
+}
+
+.rank-container {
+  display: flex;
+  align-items: center;
+  /* Align items vertically */
+  background-color: #f0f0f0;
+  /* Background color */
+  padding-inline: 8px;
+  /* Add some padding for spacing */
+  border-radius: 4px;
+  /* Add rounded corners */
+  margin: 8px;
+}
+
+.rank-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  /* Adjust color as needed */
+  margin-right: 8px;
+  /* Add some space between label and value */
+  padding: 8px;
+  margin: 0;
+}
+
+.rank-value {
+  font-size: 18px;
+  color: #8884d8;
+  /* Adjust color as needed */
+  padding-right: 8px;
+  margin: 0;
+}
+
+.recharts-wrapper {
+  background-color: #0000005e;
+  /* Background color */
+  padding: 20px;
+  /* Add padding for spacing */
+  border-radius: 8px;
+  /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a subtle box shadow */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-inline: 1rem;
+}
+
+.modal-close-btn {
+  border: none;
+  background-color:#3B4CCA;
+  color: #FFDE00;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: large;
+  font-weight: bold;
+  margin-block-start: 0.83em;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+}
+
+.modal-close-btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+  transform: translateY(-2px);
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  width: 50px;
+  height: 50px;
+}
+
+.path {
+  stroke: #888;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.global-stats {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 @media screen and (max-width: 768px) {
   .cards-container {
-    gap: .5rem; /* Adjust gap between cards */
+    gap: .5rem;
+    /* Adjust gap between cards */
+  }
+
+  .pokemon-card-motion {
+    width: calc(50% - 0.5rem);
+    /* Adjust card width to fit the screen */
   }
 
   .pokemon-card-bg {
-    width: calc(50% - 0.5rem); /* Adjust card width to fit the screen */
+    width: auto;
   }
 
   .pokemon-card {
-    padding: 10px; /* Adjust padding for smaller screens */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Adjust box shadow */
-    border-radius: 8px; /* Adjust border radius */
+    padding: 10px;
+    /* Adjust padding for smaller screens */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Adjust box shadow */
+    border-radius: 8px;
+    /* Adjust border radius */
   }
 
   .pokemon-card img {
-    width: 100%; /* Make image responsive */
-    max-width: 200px; /* Set max-width for image */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto 10px; /* Adjust margin */
+    width: 100%;
+    /* Make image responsive */
+    max-width: 200px;
+    /* Set max-width for image */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin: 0 auto 10px;
+    /* Adjust margin */
   }
 
   .pokemon-card h2 {
-    font-size: 1.2rem; /* Adjust font size */
+    font-size: 1.2rem;
+    /* Adjust font size */
   }
 
-  .stats, .hp {
+  .stats,
+  .hp {
     font-size: small;
   }
 

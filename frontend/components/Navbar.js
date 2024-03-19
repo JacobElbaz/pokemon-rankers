@@ -15,7 +15,7 @@ function Navbar() {
               <Link href={'/battle'} className={pathname == "/battle" ? "active" : ""}>Battle</Link>
             </li>
             <li>
-              <Link href={'/top-pokemon'} className={pathname == "/top-pokemon" ? "active" : ""}>Top Pokemon</Link>
+              <Link href={'/ranking'} className={pathname == "/ranking" ? "active" : ""}>Ranking</Link>
             </li>
             <li>
               <Link href={'/about'} className={pathname == "/about" ? "active" : ""}>About</Link>
