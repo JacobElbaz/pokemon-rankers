@@ -1,4 +1,5 @@
 const Pokemon = require("../models/Pokemon");
+const fetch = require("node-fetch");
 
 const getPokemonByName = async (req, res) => {
   const pokeName = req.params.name;
