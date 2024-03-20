@@ -12,7 +12,7 @@ function PokemonCard({ pokemon, handleClick, single = false }) {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/pokemon/vote", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/pokemon/vote`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
