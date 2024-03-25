@@ -11,7 +11,8 @@ const agenda = new Agenda({
 agenda.define("update ranking", async job => {
   try {
     // Récupérez tous les Pokémon de la base de données et triez-les par nombre de votes décroissant
-    const allPokemon = await Pokemon.find().sort((a, b) => b.votes.length - a.votes.length);
+    const allPokemon = await Pokemon.find();
+    allPokemon.sort((a, b) => b.votes.length - a.votes.length);
 
     // Parcourez tous les Pokémon et mettez à jour leur classement dans la base de données
     allPokemon.forEach(async (pokemon, index) => {
