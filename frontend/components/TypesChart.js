@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { PieChart, Pie, Tooltip, BarChart, Bar, XAxis, Cell } from "recharts";
+import { Tooltip, BarChart, Bar, XAxis, Cell } from "recharts";
 import { useFetch } from "@/hooks/useFetch";
 import Loader from "./Loader";
 
@@ -31,8 +31,10 @@ function TypesChart() {
   };
   return (
     <motion.div style={{marginBlock: '1rem', marginInline: 'auto'}}>
+      <h2 style={{color: 'white'}}>Top 5 types</h2>
       {isPending && (
         <div>
+          <h1 style={{color: 'white'}}>Loading...</h1>
           <Loader />
         </div>
       )}

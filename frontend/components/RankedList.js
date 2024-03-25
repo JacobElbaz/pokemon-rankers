@@ -21,6 +21,7 @@ function RankedList({ limit }) {
 
   return (
     <div className="ranked-list">
+      <h2>Top rated</h2>
       {isPending && (
         <div>
           <h1>Loading...</h1>

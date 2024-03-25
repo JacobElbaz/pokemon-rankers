@@ -27,13 +27,26 @@ const getBattle = async (req, res) => {
         `https://pokeapi.co/api/v2/pokemon/${randomId}/`
       );
       pokemons[index] = await result.json();
-      console.log("Success");
     } catch (error) {
       console.log(`Error getting pokemon id: ${randomId}`, error);
     }
   }
   res.send(pokemons);
 };
+
+const getBattleByType = async (req, res) => {
+  let pokemons = [];
+  const type = req.params.type;
+  const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+  const data = await result.json();
+  const pokemonFromType = data.pokemon;
+  for (let index = 0; index < 2; index++) {
+    const randomIndex = Math.floor(Math.random() * (pokemonFromType.length - 1) + 1);
+    const res = await fetch(`${pokemonFromType[randomIndex].pokemon.url}`);
+    pokemons[index] = await res.json();
+  }
+  res.send(pokemons);
+}
 
 const newVote = async (req, res) => {
   try {
@@ -181,4 +194,5 @@ module.exports = {
   updateRanking,
   getVotesByType,
   updateTypes,
+  getBattleByType
 };

@@ -12,7 +12,7 @@ function Navbar() {
               <Link href={'/'} className={pathname == "/" ? "active" : ""}>Home</Link>
             </li>
             <li>
-              <Link href={'/battle'} className={pathname == "/battle" ? "active" : ""}>Battle</Link>
+              <Link href={'/battle/all'} className={pathname == "/battle/all" ? "active" : ""}>Battle</Link>
             </li>
             <li>
               <Link href={'/ranking'} className={pathname == "/ranking" ? "active" : ""}>Ranking</Link>

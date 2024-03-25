@@ -1,12 +1,12 @@
 "use client";
-import PokemonCard from "../../components/PokemonCard.js";
+import PokemonCard from "../../../components/PokemonCard.js";
 import React from "react";
 import { getRandomPokemons } from "@/services/pokemonServices.js";
 import { motion, useAnimationControls } from "framer-motion";
 import Modal from "@/components/Modal.js";
 import Loader from "@/components/Loader.js";
 
-function Battle() {
+function Battle({params}) {
   const [pokemons, setPokemons] = React.useState([]);
   const [isPending, setIsPending] = React.useState(false);
   const [error, setError] = React.useState(false);
@@ -25,7 +25,7 @@ function Battle() {
         duration: 2,
       },
     }));
-    const poke = await getRandomPokemons();
+    const poke = await getRandomPokemons(params.type);
     setPokemons(poke);
     console.log("clicked");
   };
@@ -36,7 +36,7 @@ function Battle() {
       setError(false);
       setIsPending(true);
       try {
-        const poke = await getRandomPokemons();
+        const poke = await getRandomPokemons(params.type);
         setPokemons(poke);
         controls.start((i) => ({
           scale: [0, 1],
