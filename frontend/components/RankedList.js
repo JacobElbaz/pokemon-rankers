@@ -38,7 +38,6 @@ function RankedList({ limit }) {
           <thead>
             <tr>
               <th>#</th>
-              <th>ID</th>
               <th>Name</th>
               <th>Votes</th>
             </tr>
@@ -49,7 +48,6 @@ function RankedList({ limit }) {
                 <td style={{ textAlign: "center" }}>
                   {index < 3 ? medals[index + 1] : index + 1}
                 </td>
-                <td>{pokemon.id}</td>
                 <td style={{ textTransform: "capitalize" }}>
                   <Link
                     style={{ textDecoration: "none", color: "white" }}
