@@ -8,7 +8,7 @@ export default function Home() {
       <div className="hero">
         <div className="hero-bg">
           <h1>Join the Pokémon Showdown</h1>
-          <Link className="button-30" href={"/battle"}>
+          <Link className="button-30" href={"/battle/all"}>
             Vote Now!
           </Link>
         </div>
