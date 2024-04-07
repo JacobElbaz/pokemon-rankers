@@ -11,9 +11,9 @@ const types = [
   "dark",
   "dragon",
   "electric",
-  "fire",
   "fairy",
   "fighting",
+  "fire",
   "flying",
   "ghost",
   "grass",
@@ -41,15 +41,17 @@ const generations = [
 const roman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 function BattlesPage() {
   return (
-    <div style={{textAlign: 'center', marginTop: '70px', color: 'white'}}>
+    <div style={{textAlign: 'center', marginTop: '70px', color: 'white', display:"grid", gap: '5rem'}}>
       <div>
         <h1>Big Showdown</h1>
+        <p>Face pokemon of all types and generations</p>
         <div className="wrapper">
-          <Link href={"/battle"} className="button-30" style={{width: '100%'}}>Let's Showdown !</Link>
+          <Link href={"/battle"} className="my-btn" style={{width: '100%'}}><p>Let's Showdown !</p></Link>
         </div>
       </div>
       <div>
         <h1>Battle by Type</h1>
+        <p>Face off against pokemons of the same type</p>
         <div className="wrapper">
           {images.map((svg, index) => (
             <Tooltip title={types[index].toUpperCase()} enterDelay={500}key={index}>
@@ -67,9 +69,10 @@ function BattlesPage() {
       </div>
       <div>
         <h1>Battle by Generation</h1>
+        <p>Face the pokemons according to the generation to which they belong</p>
         <div className="wrapper">
           {generations.map((gen, index) => (
-            <Link href={""} key={index} className={`gen ${types[index]}`}>
+            <Link href={`/battle/${index + 1}`} key={index} className={`gen ${types[index]}`} style={{margin: 'auto'}}>
               <h2>{roman[index]}</h2>
               <p>{gen}</p>
             </Link>

@@ -48,6 +48,31 @@ const getBattleByType = async (req, res) => {
   res.send(pokemons);
 }
 
+async function getBattleByGeneration(req, res) {
+  const generation = req.params.generation;
+  try {
+      // Get the list of Pokémon of the specified generation
+      const response = await fetch(`https://pokeapi.co/api/v2/generation/${generation}`);
+      const data = await response.json();
+      const pokemonList = data.pokemon_species;
+
+      // Choose two random Pokémon from the list
+      const randomIndexes = Array.from({ length: 2 }, () => Math.floor(Math.random() * (pokemonList.length - 1) + 1));
+      const randomPokemon = randomIndexes.map(index => pokemonList[index].name);
+
+      // Obtain details of the two selected Pokémon
+      const pokemonDetails = await Promise.all(randomPokemon.map(async name => {
+          const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+          const data = await pokemonResponse.json();
+          return data;
+      }));
+      res.send(pokemonDetails);
+  } catch (error) {
+      console.error('Error while retrieving data:', error);
+      throw error;
+  }
+}
+
 const newVote = async (req, res) => {
   try {
     // Verify if the pokemon already exists in the db
@@ -194,5 +219,6 @@ module.exports = {
   updateRanking,
   getVotesByType,
   updateTypes,
-  getBattleByType
+  getBattleByType,
+  getBattleByGeneration
 };
