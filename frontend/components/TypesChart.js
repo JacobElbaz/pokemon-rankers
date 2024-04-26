@@ -3,7 +3,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Tooltip, BarChart, Bar, XAxis, Cell } from "recharts";
 import { useFetch } from "@/hooks/useFetch";
-import Loader from "./Loader";
+import pikachuRun from "../assets/pikachurun.gif";
+import Image from "next/image";
+
 
 function TypesChart() {
   const { data, isPending, error } = useFetch(
@@ -30,18 +32,17 @@ function TypesChart() {
     dark: "#000000",
   };
   return (
-    <motion.div style={{marginBlock: '1rem', marginInline: 'auto'}}>
-      <h2 style={{color: 'white'}}>Top 5 types</h2>
+    <motion.div style={{ marginBlock: "1rem", marginInline: "auto" }}>
+      <h2 style={{ color: "white" }}>Top 5 types</h2>
       {isPending && (
-        <div>
-          <h1 style={{color: 'white'}}>Loading...</h1>
-          <Loader />
+        <div style={{ display: "grid", placeItems: "center" }}>
+          <Image src={pikachuRun} alt="loader" />
         </div>
       )}
       {error && error}
       {data && (
         <BarChart width={310} height={200} data={data}>
-          <XAxis dataKey="type" tickLine={false}/>
+          <XAxis dataKey="type" tickLine={false} />
           <Tooltip />
           <Bar dataKey="votes" fill="#8884d8">
             {data.map((entry, index) => (

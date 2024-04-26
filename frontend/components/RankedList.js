@@ -3,7 +3,8 @@ import { useFetch } from "@/hooks/useFetch";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import Loader from "./Loader";
+import pikachuRun from "../assets/pikachurun.gif";
+import Image from "next/image";
 
 function RankedList({ limit }) {
   const { data, isPending, error } = useFetch(
@@ -23,9 +24,8 @@ function RankedList({ limit }) {
     <div className="ranked-list">
       <h2>Top rated</h2>
       {isPending && (
-        <div>
-          <h1>Loading...</h1>
-          <Loader />
+        <div style={{display: 'grid', placeItems: 'center'}}>
+          <Image src={pikachuRun} alt="loader"/>
         </div>
       )}
       {error && <div>{error}</div>}
