@@ -648,3 +648,19 @@ tbody tr:hover {
   background: #539DDF;
   box-shadow: 0 0 20px #539DDF;
 }
+
+.article {
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (max-width:500px) {
+  .article{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
