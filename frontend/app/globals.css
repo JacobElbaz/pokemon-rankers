@@ -649,18 +649,40 @@ tbody tr:hover {
   box-shadow: 0 0 20px #539DDF;
 }
 
+.news {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
 .article {
   background-color: #f0f0f0;
-  border-radius: 2px;
+  border-radius: 5px;
   display: flex;
-  padding: 1rem;
-  gap: 1rem;
-  align-items: center;
+  box-shadow: #012b3996 0px 5px 10px 1px;
+}
+
+.article .image-container {
+  width: 100%;
+  max-width: 500px;
+  max-height: 200px;
+}
+
+.article img {
+  object-fit: cover;
+  border-radius: 5px 0 0 5px;
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  position: relative !important;
 }
 
 @media (max-width:500px) {
   .article{
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .article img {
+    border-radius: 5px 5px 0 0;
   }
 }

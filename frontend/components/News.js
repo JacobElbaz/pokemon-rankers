@@ -11,7 +11,7 @@ function News() {
         console.log(data);
       }, [data]);
   return (
-    <div style={{width: '100%', margin: '1rem', display: 'grid', gap: '1rem'}}>
+    <div className='news'>
         <h2 style={{color: 'white'}}>News</h2>
         {isPending && <>Loading...</>}
         {data && data.articles.map(article => (
