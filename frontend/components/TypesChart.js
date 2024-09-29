@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Tooltip, BarChart, Bar, XAxis, Cell } from "recharts";
 import { useFetch } from "@/hooks/useFetch";
@@ -36,7 +36,7 @@ function TypesChart() {
       <h2 style={{ color: "white" }}>Top 5 types</h2>
       {isPending && (
         <div style={{ display: "grid", placeItems: "center" }}>
-          <Image src={pikachuRun} alt="loader" />
+          <Image src={pikachuRun} alt="loader" unoptimized/>
         </div>
       )}
       {error && error}

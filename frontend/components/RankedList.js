@@ -25,7 +25,7 @@ function RankedList({ limit }) {
       <h2>Top rated</h2>
       {isPending && (
         <div style={{display: 'grid', placeItems: 'center'}}>
-          <Image src={pikachuRun} alt="loader"/>
+          <Image src={pikachuRun} alt="loader" unoptimized/>
         </div>
       )}
       {error && <div>{error}</div>}

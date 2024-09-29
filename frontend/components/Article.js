@@ -5,7 +5,7 @@ function Article({ title, description, image, url }) {
   return (
     <div className="article">
       <div className="image-container">
-        <Image src={image} alt={`image-${title}`} fill/>
+        {image && <Image src={image} alt={`image-${title}`} fill />}
       </div>
       <div style={{padding: '1rem'}}>
         <h3>{title}</h3>
